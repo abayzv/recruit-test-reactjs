@@ -7,7 +7,7 @@ export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <header className='z-50 lg:fixed top-0 left-0 w-full'>
+        <header className='z-50 fixed top-0 left-0 w-full'>
             <nav className="px-4 lg:px-6 py-2.5 bg-black lg:bg-opacity-50">
                 <div className="flex flex-wrap justify-between items-center">
                     <a href="https://flowbite.com" className="flex items-center">
