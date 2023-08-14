@@ -7,9 +7,9 @@ export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <header>
-            <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-slate-800">
-                <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+        <header className='z-50 lg:fixed top-0 left-0 w-full'>
+            <nav className="px-4 lg:px-6 py-2.5 bg-black lg:bg-opacity-50">
+                <div className="flex flex-wrap justify-between items-center">
                     <a href="https://flowbite.com" className="flex items-center">
                         <img src="https://flowbite.com/docs/images/logo.svg" className="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
                         <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Movie <span className='text-red-500'>Star</span></span>
