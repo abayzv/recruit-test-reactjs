@@ -30,9 +30,9 @@ export default function MovieList({ title, query }: { title: string, query: stri
     }
 
     const renderMovies = () => {
-        return movies.map((movie: Movie) => {
+        return movies.map((movie, index) => {
             return (
-                <div className="rounded-lg overflow-clip hover:scale-105 transition-all group/card hover:ring-2 ring-blue-500 hover:shadow-xl hover:shadow-blue-700 relative duration-300">
+                <div key={index} className="rounded-lg overflow-clip hover:scale-105 transition-all group/card hover:ring-2 ring-blue-500 hover:shadow-xl hover:shadow-blue-700 relative duration-300">
                     <div className="w-full h-full absolute top-0 left-0 bg-black opacity-0 group-hover/card:opacity-50 duration-1000" />
                     <img src={`${imageUrl}${movie.poster_path}`} alt="" />
                     <button className="hidden group-hover/card:flex w-full h-full absolute top-0 left-0 justify-center items-center">
