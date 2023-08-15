@@ -10,10 +10,10 @@ export default function Header() {
         <header className='z-50 fixed top-0 left-0 w-full'>
             <nav className="px-4 lg:px-6 py-2.5 bg-black lg:bg-opacity-50">
                 <div className="flex flex-wrap justify-between items-center">
-                    <a href="https://flowbite.com" className="flex items-center">
+                    <Link to="/" className="flex items-center">
                         <img src="https://cdn-icons-png.flaticon.com/512/1456/1456703.png" className="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
-                        <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Movie <span className='text-red-500'>Star</span></span>
-                    </a>
+                        <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Movie<span className='text-red-500'>Star</span></span>
+                    </Link>
                     <div className="lg:flex items-center lg:order-2">
                         <div className='hidden lg:flex gap-2 font-bold'>
                             <Link to="/login" className='text-white p-2 rounded-lg flex items-center gap-2'><BiLogInCircle /> Login</Link>
