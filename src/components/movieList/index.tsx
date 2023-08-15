@@ -52,7 +52,7 @@ export default function MovieList({ title, query }: { title: string, query: stri
                         {renderTitle(title)}
                     </h1>
                 </div>
-                <div className="grid grid-cols-5 gap-7">
+                <div className="grid grid-cols-2 lg:grid-cols-5 gap-7">
                     {renderMovies()}
                 </div>
             </div>

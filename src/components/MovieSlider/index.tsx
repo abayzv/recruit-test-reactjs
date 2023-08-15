@@ -37,7 +37,7 @@ export default function MovieSlider({ title, query }: { title: string, query: st
         return () => clearInterval(interval)
     }, [])
 
-    const { data, isLoading, isError } = useQuery('upcomingMovies', getUpcomingMovies)
+    const { data, isLoading, isError } = useQuery(query, getUpcomingMovies)
     if (isLoading) return <div>Loading...</div>
     if (isError) return <div> Error </div>
 

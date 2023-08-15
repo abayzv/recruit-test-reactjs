@@ -9,7 +9,7 @@ export default function MoviePromotion({ query }: { query: string }) {
         return data
     }
 
-    const { data, isLoading, isError } = useQuery("movie", getMovie)
+    const { data, isLoading, isError } = useQuery(query, getMovie)
 
     if (isLoading) return <div>Loading...</div>
 

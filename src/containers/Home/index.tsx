@@ -22,6 +22,8 @@ export default function Home() {
             <MovieSlider title="Upcoming Movie" query="/movie/upcoming" />
             <MoviePromotion query="avengers endgame" />
             <MovieList title="Popular Movie" query="/movie/popular" />
+            <MoviePromotion query="jujutsu kaisen 0" />
+            <MovieList title="Top Movie" query="/movie/top_rated" />
         </Layout>
     )
 }
