@@ -2,6 +2,7 @@ import Layout from "../../components/layout"
 import Slider from "../../components/slider"
 import MovieSlider from "../../components/movieSlider"
 import MoviePromotion from "../../components/moviePromotion"
+import MovieList from "../../components/movieList"
 
 export default function Home() {
     const dataSlider = [
@@ -20,6 +21,7 @@ export default function Home() {
             <Slider sliderData={dataSlider} />
             <MovieSlider title="Upcoming Movie" query="/movie/upcoming" />
             <MoviePromotion query="avengers endgame" />
+            <MovieList title="Popular Movie" query="/movie/popular" />
         </Layout>
     )
 }
