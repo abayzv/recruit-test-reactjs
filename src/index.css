@@ -7,3 +7,21 @@
 body {
   font-family: 'Nunito', sans-serif;
 }
+
+.slider {
+  /* hide scrollbar */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.slider-wrapper{
+  display: flex;
+  transform: translateX(calc(100vw));
+  overflow: visible;
+  animation: animateContainer 10s linear forwards infinite;
+  /* animation-play-state: paused; */
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

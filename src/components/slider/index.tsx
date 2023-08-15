@@ -54,7 +54,7 @@ export default function Slider(props: React.PropsWithRef<{ sliderData: SliderDat
 
     return (
         <>
-            <div className="relative aspect-[2.7/1] overflow-hidden mt-14 lg:mt-0">
+            <div className="relative aspect-[2.7/1] overflow-hidden mt-14 lg:-mb-3 lg:mt-0">
                 {renderSlider()}
                 {/* slider select */}
                 <div className="flex absolute bottom-[10%] justify-center w-full">

@@ -1,5 +1,6 @@
 import Layout from "../../components/layout"
 import Slider from "../../components/slider"
+import MovieSlider from "../../components/MovieSlider"
 
 export default function Home() {
     const dataSlider = [
@@ -16,6 +17,7 @@ export default function Home() {
     return (
         <Layout>
             <Slider sliderData={dataSlider} />
+            <MovieSlider />
         </Layout>
     )
 }
