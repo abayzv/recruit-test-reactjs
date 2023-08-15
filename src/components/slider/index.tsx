@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react"
-import { SliderData } from "./slider.services"
+import { SliderData } from "../../services/slider.services"
 
 export default function Slider(props: React.PropsWithRef<{ sliderData: SliderData }>) {
 
@@ -12,14 +12,6 @@ export default function Slider(props: React.PropsWithRef<{ sliderData: SliderDat
 
         setCurrentSlide(currentSlide + 1)
     }, [currentSlide, props.sliderData.length])
-
-    const prevSlide = () => {
-        if (currentSlide === 0) {
-            return setCurrentSlide(props.sliderData.length - 1)
-        }
-
-        setCurrentSlide(currentSlide - 1)
-    }
 
     const setSlide = (index: number) => {
         setCurrentSlide(index)
