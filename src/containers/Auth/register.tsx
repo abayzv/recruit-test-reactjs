@@ -3,7 +3,9 @@ import Layout from "../../components/layout";
 export default function Register() {
     return (
         <Layout>
-            <h1>Register</h1>
+            <div className="h-screen w-screen flex items-center justify-center bg-gray-800 text-white">
+                Register
+            </div>
         </Layout>
     )
 }
