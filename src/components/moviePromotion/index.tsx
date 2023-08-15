@@ -2,6 +2,7 @@ import { useQuery } from "react-query"
 import api from "../../utils/api"
 import { Movie } from "../../services/movie.services"
 import { AiFillEye, AiFillStar } from "react-icons/ai"
+import { Link } from "react-router-dom"
 
 export default function MoviePromotion({ query }: { query: string }) {
     const getMovie = async () => {
@@ -39,7 +40,9 @@ export default function MoviePromotion({ query }: { query: string }) {
                             </div>
                         </div>
                         <p className="text-white mt-5">{movie.overview}</p>
-                        <button className="mt-5 bg-red-500 text-white p-3 px-6 rounded-lg">Watch Now</button>
+                        <Link to={`/movies/${movie.id}`}>
+                            <button className="mt-5 bg-red-600 hover:bg-red-500 text-white p-3 px-6 rounded-lg">Watch Now</button>
+                        </Link>
                     </div>
                 </div>
             </div>
