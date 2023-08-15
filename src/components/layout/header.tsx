@@ -2,19 +2,40 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom'
 import { BiLogInCircle } from 'react-icons/bi'
 import { FiUserPlus } from 'react-icons/fi'
+import { HeaderMenu } from '../../services/header.services';
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const menu: HeaderMenu[] = [
+        {
+            name: 'Home',
+            path: '/'
+        },
+        {
+            name: 'Movies',
+            path: '/movies'
+        }
+    ]
+
+    const renderHeader = () => {
+        return menu.map((item, index) => {
+            return (
+                <li key={index}>
+                    <Link to={item.path} className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white" aria-current="page">{item.name}</Link>
+                </li>
+            )
+        })
+    }
 
     return (
         <header className='z-50 fixed top-0 left-0 w-full'>
             <nav className="px-4 lg:px-6 py-2.5 bg-gray-900 lg:bg-opacity-70">
-                <div className="flex flex-wrap justify-between items-center">
+                <div className="flex flex-wrap gap-10 items-center">
                     <Link to="/" className="flex items-center">
                         <img src="https://cdn-icons-png.flaticon.com/512/1456/1456703.png" className="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
                         <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Movie<span className='text-red-500'>Star</span></span>
                     </Link>
-                    <div className="lg:flex items-center lg:order-2">
+                    <div className="lg:flex items-center lg:order-2 ml-auto">
                         <div className='hidden lg:flex gap-2 font-bold'>
                             <Link to="/login" className='text-white p-2 rounded-lg flex items-center gap-2'><BiLogInCircle /> Login</Link>
                             <Link to="/register" className='text-white p-2 rounded-lg flex items-center gap-2'><FiUserPlus /> Register</Link>
@@ -27,9 +48,7 @@ export default function Header() {
                     </div>
                     <div className={`${!isMenuOpen && 'hidden'} justify-between items-center w-full lg:flex lg:w-auto lg:order-1`} id="mobile-menu-2">
                         <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                            <li>
-                                <Link to="/" className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white" aria-current="page">Home</Link>
-                            </li>
+                            {renderHeader()}
                         </ul>
                     </div>
                 </div>

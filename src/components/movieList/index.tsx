@@ -5,7 +5,7 @@ import { AiFillPlayCircle } from 'react-icons/ai'
 import { Link } from "react-router-dom"
 import Loading from "../Loading"
 
-export default function MovieList({ title, query, maxList }: { title: string, query: string, maxList: number }) {
+export default function MovieList({ title = "", query, maxList }: { title?: string, query: string, maxList: number }) {
 
     const getMovies = async () => {
         const { data } = await api.get(`${query}`)
@@ -22,6 +22,8 @@ export default function MovieList({ title, query, maxList }: { title: string, qu
     const movies = data.results as Movie[]
 
     const renderTitle = (title: string) => {
+        if (!title) return null
+
         return title.split(' ').map((word, index) => {
             if (index === title.split(' ').length - 1) {
                 return <span key={index} className="text-red-500">{word} </span>

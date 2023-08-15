@@ -3,6 +3,7 @@ import Home from './containers/Home';
 import Register from './containers/Auth/register';
 import Login from './containers/Auth/login';
 import Details from './containers/Movies/id';
+import MoviePage from './containers/Movies';
 
 const router = createBrowserRouter([
     {
@@ -18,8 +19,12 @@ const router = createBrowserRouter([
         element: <Login />
     },
     {
-        path: '/movies/:movie_id',
+        path: '/movies/:id',
         element: <Details />
+    },
+    {
+        path: '/movies',
+        element: <MoviePage />
     }
 ]);
 
