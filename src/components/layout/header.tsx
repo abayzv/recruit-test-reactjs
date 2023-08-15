@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import { BiLogInCircle } from 'react-icons/bi'
 import { FiUserPlus } from 'react-icons/fi'
 import { HeaderMenu } from '../../services/header.services';
+import { useLocation } from 'react-router-dom';
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,14 +15,21 @@ export default function Header() {
         {
             name: 'Movies',
             path: '/movies'
+        },
+        {
+            name: 'TV Shows',
+            path: '/tv'
         }
     ]
+
+    const location = useLocation();
+    const path = location.pathname;
 
     const renderHeader = () => {
         return menu.map((item, index) => {
             return (
                 <li key={index}>
-                    <Link to={item.path} className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white" aria-current="page">{item.name}</Link>
+                    <Link to={item.path} className={`block py-2 pr-4 pl-3 rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 font-bold ${item.path === path ? 'text-red-500' : 'text-white'}`} aria-current="page">{item.name}</Link>
                 </li>
             )
         })

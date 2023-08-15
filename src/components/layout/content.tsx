@@ -1,7 +1,6 @@
 import React from 'react';
 import { AiFillHome } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import { StringDecoder } from 'string_decoder';
 
 export default function Content({ children, title, background, width, bgSize }: { children: React.ReactNode, title: string, background?: string, width?: string, bgSize?: string }) {
 

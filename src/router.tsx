@@ -4,6 +4,7 @@ import Register from './containers/Auth/register';
 import Login from './containers/Auth/login';
 import Details from './containers/Movies/id';
 import MoviePage from './containers/Movies';
+import TvPage from './containers/Tv';
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
     {
         path: '/movies',
         element: <MoviePage />
+    },
+    {
+        path: '/tv',
+        element: <TvPage />
     }
 ]);
 

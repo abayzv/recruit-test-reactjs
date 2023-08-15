@@ -21,8 +21,8 @@ export default function RelatedMovie({ title, query, maxList, random }: { title?
         refetch()
     }, [currentPage, refetch])
 
-    if (isLoading) return <Loading />
-    if (isFetching) return <Loading />
+    if (isLoading) return <Loading className="bg-transparent" />
+    if (isFetching) return <Loading className="bg-transparent" />
 
     if (isError) return <div>Error</div>
 
