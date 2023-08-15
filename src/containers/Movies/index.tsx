@@ -8,7 +8,7 @@ export default function MoviePage() {
     return (
         <Layout>
             <Content title="Movie" width="full" background={movie_bg}>
-                <div className="mx-16 pb-20 pt-10">
+                <div className="mx-4 lg:mx-16 pb-20 pt-10">
                     <RelatedMovie query="/movie/top_rated" maxList={20} />
                 </div>
             </Content>

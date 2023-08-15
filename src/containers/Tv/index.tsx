@@ -8,7 +8,7 @@ export default function TvPage() {
     return (
         <Layout>
             <Content title="TV Shows" width="full" background={movie_bg}>
-                <div className="mx-16 pb-20 pt-10">
+                <div className="mx-4 lg:mx-16 pb-20 pt-10">
                     <RelatedMovie query="/tv/popular" maxList={20} />
                 </div>
             </Content>

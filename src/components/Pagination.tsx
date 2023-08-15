@@ -19,7 +19,7 @@ export default function Pagination({ page, totalPage, onNext, onPrev }: { page: 
     }
 
     return (
-        <div className="flex w-full justify-end gap-5">
+        <div className="flex w-full justify-center lg:justify-end gap-5">
             <button className="bg-red-600 hover:bg-red-500 px-5 py-2 rounded text-white" onClick={handlePrev}>Prev</button>
             <button className="bg-red-600 hover:bg-red-500 px-5 py-2 rounded text-white" onClick={handleNext}>Next</button>
         </div>

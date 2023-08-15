@@ -38,7 +38,7 @@ export default function Header() {
     return (
         <header className='z-50 fixed top-0 left-0 w-full'>
             <nav className="px-4 lg:px-6 py-2.5 bg-gray-900 lg:bg-opacity-70">
-                <div className="flex flex-wrap gap-10 items-center">
+                <div className="flex flex-wrap lg:gap-10 items-center">
                     <Link to="/" className="flex items-center">
                         <img src="https://cdn-icons-png.flaticon.com/512/1456/1456703.png" className="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
                         <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Movie<span className='text-red-500'>Star</span></span>
