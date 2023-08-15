@@ -3,6 +3,7 @@ import api from "../../utils/api"
 import { Movie } from "../../services/movie.services"
 import { AiFillEye, AiFillStar } from "react-icons/ai"
 import { Link } from "react-router-dom"
+import Loading from "../Loading"
 
 export default function MoviePromotion({ query }: { query: string }) {
     const getMovie = async () => {
@@ -12,7 +13,7 @@ export default function MoviePromotion({ query }: { query: string }) {
 
     const { data, isLoading, isError } = useQuery(query, getMovie)
 
-    if (isLoading) return <div>Loading...</div>
+    if (isLoading) return <Loading />
 
     if (isError) return <div>Error</div>
 

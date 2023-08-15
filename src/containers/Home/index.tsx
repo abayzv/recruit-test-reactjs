@@ -21,9 +21,9 @@ export default function Home() {
             <Slider sliderData={dataSlider} />
             <MovieSlider title="Upcoming Movie" query="/movie/upcoming" />
             <MoviePromotion query="avengers endgame" />
-            <MovieList title="Popular Movie" query="/movie/popular" />
+            <MovieList title="Popular Movie" query="/movie/popular" maxList={10} />
             <MoviePromotion query="jujutsu kaisen 0" />
-            <MovieList title="Top Movie" query="/movie/top_rated" />
+            <MovieList title="Top Movie" query="/movie/top_rated" maxList={10} />
         </Layout>
     )
 }

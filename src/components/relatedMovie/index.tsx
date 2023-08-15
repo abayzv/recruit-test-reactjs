@@ -5,7 +5,7 @@ import { AiFillPlayCircle } from 'react-icons/ai'
 import { Link } from "react-router-dom"
 import Loading from "../Loading"
 
-export default function MovieList({ title, query, maxList }: { title: string, query: string, maxList: number }) {
+export default function RelatedMovie({ title, query, maxList }: { title: string, query: string, maxList: number }) {
 
     const getMovies = async () => {
         const { data } = await api.get(`${query}`)
@@ -32,8 +32,10 @@ export default function MovieList({ title, query, maxList }: { title: string, qu
     }
 
     const renderMovies = () => {
+        // randomize movies
+        const randomMovies = movies.sort(() => Math.random() - 0.5)
 
-        return movies.slice(0, maxList).map((movie, index) => {
+        return randomMovies.slice(0, maxList).map((movie, index) => {
             return (
                 <div key={index} className="rounded-lg overflow-clip hover:scale-105 transition-all group/card hover:ring-2 ring-blue-500 hover:shadow-xl hover:shadow-blue-700 relative duration-300">
                     <div className="w-full h-full absolute top-0 left-0 bg-black opacity-0 group-hover/card:opacity-50 duration-1000" />
@@ -50,8 +52,8 @@ export default function MovieList({ title, query, maxList }: { title: string, qu
     }
 
     return (
-        <div className="slider bg-gray-800 py-10 lg:py-24">
-            <div className="mx-4 lg:mx-16">
+        <div className="mt-20">
+            <div>
                 <div className="flex justify-between w-full mb-5 lg:mb-10">
                     <h1 className="text-xl lg:text-3xl text-white font-bold">
                         {renderTitle(title)}

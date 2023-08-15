@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Home from './containers/Home';
 import Register from './containers/Auth/register';
 import Login from './containers/Auth/login';
-import MovieDetails from './containers/Movies/details';
+import Details from './containers/Movies/id';
 
 const router = createBrowserRouter([
     {
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/movies/:movie_id',
-        element: <MovieDetails />
+        element: <Details />
     }
 ]);
 

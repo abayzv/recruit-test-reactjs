@@ -5,6 +5,7 @@ import { Movie } from "../../services/movie.services"
 
 // icon
 import { AiFillStar, AiFillEye } from 'react-icons/ai'
+import Loading from "../Loading"
 
 export default function MovieSlider({ title, query }: { title: string, query: string }) {
     const slider: any = useRef(null)
@@ -38,7 +39,7 @@ export default function MovieSlider({ title, query }: { title: string, query: st
     }, [])
 
     const { data, isLoading, isError } = useQuery(query, getUpcomingMovies)
-    if (isLoading) return <div>Loading...</div>
+    if (isLoading) return <Loading />
     if (isError) return <div> Error </div>
 
     const imageUrl = "https://image.tmdb.org/t/p/w500"
