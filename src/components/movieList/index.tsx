@@ -40,7 +40,7 @@ export default function MovieList({ title = "", query, maxList }: { title?: stri
                 <div key={index} className="rounded-lg overflow-clip hover:scale-105 transition-all group/card hover:ring-2 ring-blue-500 hover:shadow-xl hover:shadow-blue-700 relative duration-300">
                     <div className="w-full h-full absolute top-0 left-0 bg-black opacity-0 group-hover/card:opacity-50 duration-1000" />
                     <img src={`${imageUrl}${movie.poster_path}`} alt="" />
-                    <Link to={`/movies/${movie.id}`} >
+                    <Link to={`/movie/${movie.id}`} >
                         <button className="hidden group-hover/card:flex w-full h-full absolute top-0 left-0 justify-center items-center">
                             <AiFillPlayCircle size={70} className="drop-shadow-[0_5px_15px_rgba(255,255,255)] text-red-600 hover:text-red-500 transition-all" />
                         </button>

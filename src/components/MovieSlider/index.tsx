@@ -50,7 +50,7 @@ export default function MovieSlider({ title, query }: { title: string, query: st
         return movies.map((movie: Movie) => {
             return (
                 <li key={movie.id} className="w-36 lg:w-80 flex-shrink-0 snap-center rounded-lg overflow-clip">
-                    <Link to={`/movies/${movie.id}`}>
+                    <Link to={`/movie/${movie.id}`}>
                         <img src={imageUrl + movie.poster_path} alt={movie.title} />
                         {/* <div className="text-white mt-2 absolute bottom-0 left-1/2 transform translate-x-[-50%] text-center bg-gradient-to-t from-black to-transparent w-full h-full px-5 flex-col justify-end py-5">
                         {movie.title}

@@ -6,12 +6,17 @@ import { Link } from "react-router-dom"
 import Loading from "../Loading"
 import Pagination from "../Pagination"
 import { useState, useEffect } from 'react'
+import { useLocation } from "react-router-dom"
 
 export default function RelatedMovie({ title, query, maxList, random }: { title?: string, query: string, maxList: number, random?: boolean }) {
     const [currentPage, setCurrentPage] = useState(1)
+    const path = useLocation().pathname
+    const firstPath = path.split('/')[1]
 
     const getMovies = async () => {
-        const { data } = await api.get(`${query}?page=${currentPage} `)
+        // if query has ? then add &page=currentPage else add ?page=currentPage
+        const url = query.includes('?') ? `${query}&page=${currentPage}` : `${query}?page=${currentPage}`
+        const { data } = await api.get(url)
         return data
     }
 
@@ -27,6 +32,7 @@ export default function RelatedMovie({ title, query, maxList, random }: { title?
     if (isError) return <div>Error</div>
 
     const { page, total_pages } = data
+
     const imageUrl = 'https://image.tmdb.org/t/p/w500'
     const movies = data.results as Movie[]
 
@@ -56,8 +62,8 @@ export default function RelatedMovie({ title, query, maxList, random }: { title?
             return (
                 <div key={index} className="rounded-lg overflow-clip hover:scale-105 transition-all group/card hover:ring-2 ring-blue-500 hover:shadow-xl hover:shadow-blue-700 relative duration-300">
                     <div className="w-full h-full absolute top-0 left-0 bg-black opacity-0 group-hover/card:opacity-50 duration-1000" />
-                    <img src={`${imageUrl}${movie.poster_path}`} alt="" />
-                    <Link to={`/movies/${movie.id}`} >
+                    {movie.poster_path ? <img src={`${imageUrl}${movie.poster_path}`} alt="" className="h-full object-cover" /> : <img src="https://www.altavod.com/assets/images/poster-placeholder.png" alt="" className="h-full object-cover" />}
+                    <Link to={`/${firstPath}/${movie.id}`} >
                         <button className="hidden group-hover/card:flex w-full h-full absolute top-0 left-0 justify-center items-center">
                             <AiFillPlayCircle size={70} className="drop-shadow-[0_5px_15px_rgba(255,255,255)] text-red-600 hover:text-red-500 transition-all" />
                         </button>

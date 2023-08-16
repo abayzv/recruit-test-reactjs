@@ -41,7 +41,7 @@ export default function MoviePromotion({ query }: { query: string }) {
                             </div>
                         </div>
                         <p className="text-white mt-5">{movie.overview}</p>
-                        <Link to={`/movies/${movie.id}`}>
+                        <Link to={`/movie/${movie.id}`}>
                             <button className="mt-5 bg-red-600 hover:bg-red-500 text-white p-3 px-6 rounded-lg">Watch Now</button>
                         </Link>
                     </div>
