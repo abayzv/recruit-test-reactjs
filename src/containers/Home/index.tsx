@@ -1,6 +1,6 @@
 import Layout from "../../components/layout"
 import Slider from "../../components/slider"
-import MovieSlider from "../../components/movieSlider"
+import MovieSlider from "../../components/MovieSlider"
 import MoviePromotion from "../../components/moviePromotion"
 import MovieList from "../../components/movieList"
 import { dataSlider } from "../../utils/sliderData"
