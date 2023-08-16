@@ -20,7 +20,7 @@ export default function SearchMenu({ onClose }: { onClose: () => void }) {
         <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="fixed top-0 left-0 w-screen h-screen bg-black z-[999] bg-opacity-50 flex items-center justify-center">
+            className="fixed top-0 left-0 w-screen h-screen bg-black z-[999] bg-opacity-80 flex items-center justify-center">
             <button className="fixed top-20 right-10" onClick={onClose}>
                 <FaTimesCircle size={30} color="white" />
             </button>

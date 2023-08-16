@@ -69,6 +69,12 @@ export default function Header() {
                         <div className={`${!isMenuOpen && 'hidden'} justify-between items-center w-full lg:flex lg:w-auto lg:order-1`} id="mobile-menu-2">
                             <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                                 {renderHeader()}
+                                <li className='block lg:hidden'>
+                                    <Link to="/login" className={`block py-2 pr-4 pl-3 rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 font-bold text-white`} aria-current="page">Login</Link>
+                                </li>
+                                <li className='block lg:hidden'>
+                                    <Link to="/register" className={`block py-2 pr-4 pl-3 rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 font-bold text-white`} aria-current="page">Register</Link>
+                                </li>
                             </ul>
                         </div>
                     </div>
