@@ -4,6 +4,7 @@ import { Movie } from "../../services/movie.services"
 import { AiFillPlayCircle } from 'react-icons/ai'
 import { Link } from "react-router-dom"
 import Loading from "../Loading"
+import { motion } from 'framer-motion'
 
 export default function MovieList({ title = "", query, maxList }: { title?: string, query: string, maxList: number }) {
 
@@ -21,6 +22,22 @@ export default function MovieList({ title = "", query, maxList }: { title?: stri
     const imageUrl = 'https://image.tmdb.org/t/p/w500'
     const movies = data.results as Movie[]
 
+    const container = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                delayChildren: 0.1,
+                staggerChildren: 0.1
+            }
+        }
+    }
+
+    const item = {
+        hidden: { opacity: 0, y: 20 },
+        show: { opacity: 1, y: 0 }
+    }
+
     const renderTitle = (title: string) => {
         if (!title) return null
 
@@ -37,7 +54,7 @@ export default function MovieList({ title = "", query, maxList }: { title?: stri
 
         return movies.slice(0, maxList).map((movie, index) => {
             return (
-                <div key={index} className="rounded-lg overflow-clip hover:scale-105 transition-all group/card hover:ring-2 ring-blue-500 hover:shadow-xl hover:shadow-blue-700 relative duration-300">
+                <motion.div variants={item} key={index} className="rounded-lg overflow-clip hover:scale-105 transition-all group/card hover:ring-2 ring-blue-500 hover:shadow-xl hover:shadow-blue-700 relative duration-300">
                     <div className="w-full h-full absolute top-0 left-0 bg-black opacity-0 group-hover/card:opacity-50 duration-1000" />
                     <img src={`${imageUrl}${movie.poster_path}`} alt="" />
                     <Link to={`/movie/${movie.id}`} >
@@ -45,7 +62,7 @@ export default function MovieList({ title = "", query, maxList }: { title?: stri
                             <AiFillPlayCircle size={70} className="drop-shadow-[0_5px_15px_rgba(255,255,255)] text-red-600 hover:text-red-500 transition-all" />
                         </button>
                     </Link>
-                </div>
+                </motion.div>
             )
 
         })
@@ -59,9 +76,13 @@ export default function MovieList({ title = "", query, maxList }: { title?: stri
                         {renderTitle(title)}
                     </h1>
                 </div>
-                <div className="grid grid-cols-2 lg:grid-cols-5 gap-7">
+                <motion.div
+                    variants={container}
+                    initial="hidden"
+                    animate="show"
+                    className="grid grid-cols-2 lg:grid-cols-5 gap-7">
                     {renderMovies()}
-                </div>
+                </motion.div>
             </div>
         </div>
     )

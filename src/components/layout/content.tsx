@@ -1,6 +1,7 @@
 import React from 'react';
 import { AiFillHome } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 export default function Content({ children, title, background, width, bgSize }: { children: React.ReactNode, title: string, background?: string, width?: string, bgSize?: string }) {
 
@@ -20,9 +21,12 @@ export default function Content({ children, title, background, width, bgSize }: 
                 <h1 className='text-3xl mb-2'>{title}</h1>
                 <div><Link to="/"><AiFillHome color="red" className="inline-block mb-1" /> Home</Link> - {title}</div>
             </div>
-            <div className={width === 'full' ? '' : 'max-w-screen-xl mx-auto'}>
+            <motion.div
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                className={width === 'full' ? '' : 'max-w-screen-xl mx-auto'}>
                 {children}
-            </div>
+            </motion.div>
         </div>
     )
 }

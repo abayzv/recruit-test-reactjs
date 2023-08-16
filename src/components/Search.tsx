@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import React from "react"
 import { FaTimesCircle } from "react-icons/fa"
+import { motion } from "framer-motion"
 
 export default function SearchMenu({ onClose }: { onClose: () => void }) {
     const [query, setQuery] = useState("")
@@ -16,7 +17,10 @@ export default function SearchMenu({ onClose }: { onClose: () => void }) {
     }
 
     return (
-        <div className="fixed top-0 left-0 w-screen h-screen bg-black z-[999] bg-opacity-50 flex items-center justify-center">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="fixed top-0 left-0 w-screen h-screen bg-black z-[999] bg-opacity-50 flex items-center justify-center">
             <button className="fixed top-20 right-10" onClick={onClose}>
                 <FaTimesCircle size={30} color="white" />
             </button>
@@ -28,6 +32,6 @@ export default function SearchMenu({ onClose }: { onClose: () => void }) {
                 </select>
                 <Link onClick={() => onClose()} to={`/${type}/search?query=${query}`} className="bg-gradient-to-bl from-red-500 to-red-600 hover:bg-gradient-to-br hover:from-red-500 hover:to-red-700 px-5 py-4 text-white font-bold text-center">Search</Link>
             </div>
-        </div>
+        </motion.div>
     )
 }
