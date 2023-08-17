@@ -39,14 +39,14 @@ export default function Slider(props: React.PropsWithRef<{ sliderData: SliderDat
     const renderSelectors = () => {
         return props.sliderData.map((item, index) => {
             return (
-                <div key={index} className={`${currentSlide === index ? 'bg-red-500' : 'bg-white'} w-10 h-2 rounded-full mx-1 cursor-pointer`} onClick={() => setSlide(index)}></div>
+                <div key={index} className={`${currentSlide === index ? 'bg-white w-10' : 'bg-white w-2'} h-2 rounded-full mx-1 cursor-pointer`} onClick={() => setSlide(index)}></div>
             )
         })
     }
 
     return (
         <>
-            <div className="relative aspect-[2.7/1] overflow-hidden mt-14 lg:-mb-3 lg:mt-0">
+            <div className="relative aspect-[2.7/1] overflow-hidden mt-14 -mb-1 lg:-mb-3 lg:mt-0">
                 {renderSlider()}
                 {/* slider select */}
                 <div className="flex absolute bottom-[10%] justify-center w-full">

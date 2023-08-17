@@ -78,7 +78,7 @@ export default function RelatedMovie({ title, query, maxList, random }: { title?
 
         return randomMovies.slice(0, maxList).map((movie, index) => {
             return (
-                <motion.div variants={item} key={index} className="rounded-lg overflow-clip hover:scale-105 transition-all group/card hover:ring-2 ring-blue-500 hover:shadow-xl hover:shadow-blue-700 relative duration-300">
+                <motion.div variants={item} key={index} className="rounded-lg max-h-60 lg:max-h-none overflow-clip hover:scale-105 transition-all group/card hover:ring-2 ring-blue-500 hover:shadow-xl hover:shadow-blue-700 relative duration-300">
                     <div className="w-full h-full absolute top-0 left-0 bg-black opacity-0 group-hover/card:opacity-50 duration-1000" />
                     {movie.poster_path ? <img src={`${imageUrl}${movie.poster_path}`} alt="" className="h-full object-cover" /> : <img src="https://www.altavod.com/assets/images/poster-placeholder.png" alt="" className="h-full object-cover" />}
                     <Link to={`/${firstPath === 'tv' ? 'tv' : 'movie'}/${movie.id}`} >
