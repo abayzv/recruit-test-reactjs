@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react'
 import { useLocation } from "react-router-dom"
 import { motion } from 'framer-motion'
 
-export default function RelatedMovie({ title, query, maxList, random }: { title?: string, query: string, maxList: number, random?: boolean }) {
+export default function RelatedMovie({ title, query, maxList, random, paginate = true }: { title?: string, query: string, maxList: number, random?: boolean, paginate?: boolean }) {
     const [currentPage, setCurrentPage] = useState(1)
     const path = useLocation().pathname
     const firstPath = path.split('/')[1]
@@ -107,13 +107,15 @@ export default function RelatedMovie({ title, query, maxList, random }: { title?
                 {renderMovies()}
             </motion.div>
             <div className="mt-5">
-                <Pagination page={page} totalPage={total_pages} onNext={() => {
-                    if (currentPage === total_pages) return
-                    setCurrentPage(currentPage + 1)
-                }} onPrev={() => {
-                    if (currentPage === 1) return
-                    setCurrentPage(currentPage - 1)
-                }} />
+                {paginate && (
+                    <Pagination page={page} totalPage={total_pages} onNext={() => {
+                        if (currentPage === total_pages) return
+                        setCurrentPage(currentPage + 1)
+                    }} onPrev={() => {
+                        if (currentPage === 1) return
+                        setCurrentPage(currentPage - 1)
+                    }} />
+                )}
             </div>
         </div>
     )

@@ -74,7 +74,7 @@ export default function TvDetails() {
                     </div>
                 </div>
                 <div className="py-20">
-                    <RelatedMovie title="Related Movies" query={`/tv/popular`} maxList={5} random />
+                    <RelatedMovie title="Related Movies" query={`/tv/popular`} maxList={5} random paginate={false} />
                 </div>
             </Content>
         </Layout>

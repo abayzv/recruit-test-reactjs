@@ -24,7 +24,7 @@ export default function Content({ children, title, background, width, bgSize }: 
             <motion.div
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
-                className={width === 'full' ? '' : 'max-w-screen-xl mx-auto'}>
+                className={width === 'full' ? '' : 'max-w-screen-xl lg:mx-auto mx-4'}>
                 {children}
             </motion.div>
         </div>
